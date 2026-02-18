@@ -11,7 +11,7 @@ pipeline {
             }
             steps {
                 dir('bugtracker-backend') {
-                    sh 'got test -v ./...'
+                    sh 'go test -v ./...'
                 }
             }
         }
