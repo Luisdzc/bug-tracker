@@ -50,7 +50,6 @@ jobs:
 
 
   unit-tests-frontend:
-    needs: unit-tests-backend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -68,10 +67,6 @@ jobs:
           npm ci
           # Run tests and save full output for GitHub Actions UI
           npm test | tee full_output.txt
-          # Extract just the coverage summary for PR comment
-          echo "report<<EOF" >> $GITHUB_OUTPUT
-          sed -n '/^=* Coverage summary/,/^Ran all test suites/p' full_output.txt >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
           # Add to GitHub Actions UI
           echo "## Frontend Test Coverage Report" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
