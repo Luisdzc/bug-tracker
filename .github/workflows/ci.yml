@@ -110,7 +110,7 @@ jobs:
 
       - name: Upload API Test Results
         if: always()
-        uses: actions/@upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: api-test-results
           path: ./tests-api/test-results/results.xml
@@ -118,7 +118,7 @@ jobs:
 
       - name: Upload API Test Playwright Report
         if: always()
-        uses: actions/@upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: api-test-playwright-report
           path: ./tests-api/playwright-report
